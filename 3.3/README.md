@@ -4,22 +4,26 @@
   ```
   docker build -t nominatim .
   ```
-2. Copy <your_country>.osm.pbf to a local directory (i.e. /home/me/nominatimdata)
+2. OSM data is located in /home/ubuntu/osm
 
 3. Initialize Nominatim Database
   ```
-  docker run -t -v /home/me/nominatimdata:/data nominatim  sh /app/init.sh /data/<your_country>.osm.pbf postgresdata 4
+  sudo docker run -t -v nominatim-germany-data:/data -v /home/ubuntu/osm:/osm  nominatim  sh /app/init.sh /osm/germany-latest.osm.pbf / 16
   ```
-  Where 4 is the number of threads to use during import. In general the import of data in postgres is a very time consuming
-  process that may take hours or days. If you run this process on a multiprocessor system make sure that it makes the best use
-  of it. You can delete the /home/me/nominatimdata/<your_country>.osm.pbf once the import is finished.
-
+  In contrast to the original we use a volume to store the Postgres database (nominatim-germany-data) and we need to specify the
+  map folder which is in /home/ubuntu/osm containing all the .pbf files for the various geomapping apps.
+  '/' means 'from root' where 'data' ist located and 16 is the number of threads used.
 
 4. After the import is finished the /home/me/nominatimdata/postgresdata folder will contain the full postgress binaries of
    a postgis/nominatim database. The easiest way to start the nominatim as a single node is the following:
    ```
-   docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v /home/me/nominatimdata/postgresdata:/var/lib/postgresql/11/main nominatim bash /app/start.sh
+   sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v nominatim-germany-data:/var/lib/postgresql/11/main nominatim bash /app/start.sh
    ```
+
+# Optional
+
+**NOTE The (optional) next steps need to be adopted to the file structure above**
+
 
 5. Advanced configuration. If necessary you can split the osm installation into a database and restservice layer
 
