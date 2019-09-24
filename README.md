@@ -7,11 +7,11 @@
 
 # Supported tags and respective `Dockerfile` links #
 
-- [`3.3.0`, `3.3`  (*3.3/Dockerfile*)](https://github.com/mediagis/nominatim-docker/tree/master/3.3)
-- [`3.2.0`, `3.2`  (*3.2/Dockerfile*)](https://github.com/mediagis/nominatim-docker/tree/master/3.2)
-- [`3.1.0`, `3.1`  (*3.1/Dockerfile*)](https://github.com/mediagis/nominatim-docker/tree/master/3.1)
-- [`3.0.1`, `3.0`  (*3.0/Dockerfile*)](https://github.com/mediagis/nominatim-docker/tree/master/3.0)
-- [`2.5.0`, `2.5`, `latest`  (*2.5/Dockerfile*)](https://github.com/mediagis/nominatim-docker/tree/master/2.5)
+- [`3.3.0`, `3.3`  (*3.3/Dockerfile*)](https://github.com/a-hahn/nominatim-docker/tree/master/3.3)
+- [`3.2.0`, `3.2`  (*3.2/Dockerfile*)](https://github.com/a-hahn/nominatim-docker/tree/master/3.2)
+- [`3.1.0`, `3.1`  (*3.1/Dockerfile*)](https://github.com/a-hahn/nominatim-docker/tree/master/3.1)
+- [`3.0.1`, `3.0`  (*3.0/Dockerfile*)](https://github.com/a-hahn/nominatim-docker/tree/master/3.0)
+- [`2.5.0`, `2.5`, `latest`  (*2.5/Dockerfile*)](https://github.com/a-hahn/nominatim-docker/tree/master/2.5)
 
 Run [http://wiki.openstreetmap.org/wiki/Nominatim](http://wiki.openstreetmap.org/wiki/Nominatim) in a docker container. Clones the current master and builds it. This is always the latest version, be cautious as it may be unstable.
 
@@ -25,7 +25,7 @@ If a different country should be used you can set `PBF_DATA` on build.
 1. Clone repository
 
   ```
-  # git clone git@github.com:mediagis/nominatim-docker.git
+  # git clone git@github.com:a-hahn/nominatim-docker.git
   # cd nominatim-docker/<version>
   ```
 See relevant installation instructions for each version

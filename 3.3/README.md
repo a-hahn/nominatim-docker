@@ -2,7 +2,7 @@
 
 1. Build
   ```
-  docker build -t nominatim .
+  docker build -t a-hahn/nominatim .
   ```
 2. OSM data is located in /home/ubuntu/osm
 
@@ -12,7 +12,7 @@
   Build for europe takes ~ 3 days and ~500 GB database size
 
   ```
-  sudo docker run -t -v nominatim-germany-data:/data -v /home/ubuntu/osm:/osm  nominatim  sh /app/init.sh /osm/germany-latest.osm.pbf / 16
+  sudo docker run -t -v nominatim-germany-data:/data -v /home/ubuntu/osm:/osm  a-hahn/nominatim  sh /app/init.sh /osm/germany-latest.osm.pbf / 16
   ```
   In contrast to the original we use a volume to store the Postgres database (nominatim-germany-data) and we need to specify the
   map folder which is in /home/ubuntu/osm containing all the .pbf files for the various geomapping apps.
@@ -23,9 +23,9 @@
    
    ```
    ## Europe on different file mount (about ~500 GB size) !
-   sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v /media/sdb/docker/volumes/nominatim-europe-data:/var/lib/postgresql/11/main nominatim bash /app/start.sh
+   sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v /media/sdb/docker/volumes/nominatim-europe-data:/var/lib/postgresql/11/main a-hahn/nominatim bash /app/start.sh
 
-   ## sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v nominatim-germany-data:/var/lib/postgresql/11/main nominatim bash /app/start.sh
+   ## sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v nominatim-germany-data:/var/lib/postgresql/11/main a-hahn/nominatim bash /app/start.sh
    ```
 
 # Optional
