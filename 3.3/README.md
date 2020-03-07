@@ -21,12 +21,17 @@
 4. After the import is finished the /home/me/nominatimdata/postgresdata folder will contain the full postgress binaries of
    a postgis/nominatim database. The easiest way to start the nominatim as a single node is the following:
    
-   ```
-   ## Europe on different file mount (about ~500 GB size) !
-   sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v /media/sdb/docker/volumes/nominatim-europe-data:/var/lib/postgresql/11/main a-hahn/nominatim bash /app/start.sh
+```
+sudo docker run \
+-v nominatim-europe-data:/var/lib/postgresql/11/main \
+-p 6432:5432 -p 7070:8080 \
+--restart=always \
+-d --name nominatim \
+a-hahn/nominatim bash /app/start.sh
 
-   ## sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v nominatim-germany-data:/var/lib/postgresql/11/main a-hahn/nominatim bash /app/start.sh
-   ```
+## or Europe on different file mount (about ~500 GB size) !
+## sudo docker run --restart=always -p 6432:5432 -p 7070:8080 -d --name nominatim -v /media/sdb/docker/volumes/nominatim-europe-data:/var/lib/postgresql/11/main a-hahn/nominatim bash /app/start.sh
+```
 
 # Optional
 
