@@ -4,6 +4,12 @@
   ```
   docker build -t a-hahn/nominatim .
   ```
+  
+  **OR**
+  
+  sudo docker pull docker.pkg.github.com/a-hahn/nominatim-docker/nominatim-docker-3.3:latest
+  In this case replace ``ahahn/nominatim`` with ``nominatim-docker-3.3``
+  
 2. OSM data is located in /home/ubuntu/osm
 
 3. Initialize Nominatim Database
